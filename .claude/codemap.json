@@ -1,0 +1,1121 @@
+{
+  "codemapVersion": 1,
+  "generatedBy": "tools/codemap.py",
+  "generatedFromCommit": null,
+  "regenerateHint": "Do not edit by hand. Run `python tools/codemap.py` after adding, removing or renaming a file or changing a declaration's KDoc; `--check` fails when it is stale.",
+  "project": {
+    "name": "mc-run",
+    "description": "Gradle plugin that launches a Paper/Folia dev server and a vanilla Minecraft client from one build, with a runDev task that starts both and auto-joins.",
+    "basePackage": "io.github.n1ght3r.mcrun",
+    "language": "Kotlin (kotlin-dsl), Java 17 bytecode",
+    "pluginId": "io.github.n1ght3r.mc-run",
+    "docs": {
+      "root": "AGENTS.md",
+      "codemap": ".claude/CODEMAP.md"
+    },
+    "stats": {
+      "mainFiles": 30,
+      "mainLines": 2110,
+      "testFiles": 8
+    }
+  },
+  "packages": {
+    "(root)": {
+      "package": "io.github.n1ght3r.mcrun",
+      "doc": null,
+      "files": [
+        "src/main/kotlin/io/github/n1ght3r/mcrun/McRunExtension.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/McRunPlugin.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/McRunTask.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/ServerType.kt"
+      ]
+    },
+    "client": {
+      "package": "io.github.n1ght3r.mcrun.client",
+      "doc": "src/main/kotlin/io/github/n1ght3r/mcrun/client/AGENTS.md",
+      "files": [
+        "src/main/kotlin/io/github/n1ght3r/mcrun/client/ClientInstaller.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/client/ClientLaunchBuilder.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/client/InstallClientTask.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/client/LaunchArguments.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/client/LaunchSpec.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/client/MojangManifest.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/client/MojangMetadata.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/client/RuleEvaluator.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/client/RunClientTask.kt"
+      ]
+    },
+    "dev": {
+      "package": "io.github.n1ght3r.mcrun.dev",
+      "doc": "src/main/kotlin/io/github/n1ght3r/mcrun/dev/AGENTS.md",
+      "files": [
+        "src/main/kotlin/io/github/n1ght3r/mcrun/dev/DevSession.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/dev/RunDevTask.kt"
+      ]
+    },
+    "download": {
+      "package": "io.github.n1ght3r.mcrun.download",
+      "doc": "src/main/kotlin/io/github/n1ght3r/mcrun/download/AGENTS.md",
+      "files": [
+        "src/main/kotlin/io/github/n1ght3r/mcrun/download/Cache.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/download/Checksum.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/download/Downloader.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/download/DownloadService.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/download/FileLocks.kt"
+      ]
+    },
+    "server": {
+      "package": "io.github.n1ght3r.mcrun.server",
+      "doc": "src/main/kotlin/io/github/n1ght3r/mcrun/server/AGENTS.md",
+      "files": [
+        "src/main/kotlin/io/github/n1ght3r/mcrun/server/PaperFillApi.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/server/PluginDownloads.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/server/PluginSource.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/server/RunServerTask.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/server/ServerDirPreparer.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/server/ServerLaunchBuilder.kt"
+      ]
+    },
+    "util": {
+      "package": "io.github.n1ght3r.mcrun.util",
+      "doc": null,
+      "files": [
+        "src/main/kotlin/io/github/n1ght3r/mcrun/util/JavaVersions.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/util/JvmCommand.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/util/OfflineUuid.kt",
+        "src/main/kotlin/io/github/n1ght3r/mcrun/util/PluginInfo.kt"
+      ]
+    }
+  },
+  "nodes": [
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/client/ClientInstaller.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.client",
+      "lines": 166,
+      "declarations": [
+        {
+          "name": "ClientInstaller",
+          "kind": "class",
+          "role": "Installs a vanilla client into the shared cache: client jar, libraries, natives and assets."
+        }
+      ],
+      "role": "Installs a vanilla client into the shared cache: client jar, libraries, natives and assets."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/client/ClientLaunchBuilder.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.client",
+      "lines": 82,
+      "declarations": [
+        {
+          "name": "ClientSettings",
+          "kind": "class",
+          "role": "Plain, serializable snapshot of the `client { }` block, captured by the tasks."
+        },
+        {
+          "name": "ClientLaunchBuilder",
+          "kind": "object",
+          "role": "Shared by `runClient` and `runDev`: turns an installed [LaunchSpec] into a command."
+        }
+      ],
+      "role": "Shared by `runClient` and `runDev`: turns an installed [LaunchSpec] into a command."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/client/InstallClientTask.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.client",
+      "lines": 32,
+      "declarations": [
+        {
+          "name": "InstallClientTask",
+          "kind": "class",
+          "role": "`installClient`: downloads the client into the shared cache and writes `launch.json`."
+        }
+      ],
+      "role": "`installClient`: downloads the client into the shared cache and writes `launch.json`."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/client/LaunchArguments.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.client",
+      "lines": 56,
+      "declarations": [
+        {
+          "name": "LaunchArguments",
+          "kind": "object",
+          "role": "Resolves `${placeholder}` templates from `arguments.jvm` / `arguments.game`."
+        }
+      ],
+      "role": "Resolves `${placeholder}` templates from `arguments.jvm` / `arguments.game`."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/client/LaunchSpec.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.client",
+      "lines": 37,
+      "declarations": [
+        {
+          "name": "LaunchSpec",
+          "kind": "class",
+          "role": "What `installClient` hands to `runClient` / `runDev`: an installed version with rules already applied for this machine, but placeholders still unresolved (they depend on the run settings)."
+        }
+      ],
+      "role": "What `installClient` hands to `runClient` / `runDev`: an installed version with rules already applied for this machine, but placeholders still unresolved (they depend on the run settings)."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/client/MojangManifest.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.client",
+      "lines": 119,
+      "declarations": [
+        {
+          "name": "VersionInfo",
+          "kind": "class",
+          "role": "The parts of a Mojang version JSON that mc-run needs."
+        },
+        {
+          "name": "Artifact",
+          "kind": "class",
+          "role": null
+        },
+        {
+          "name": "AssetIndexRef",
+          "kind": "class",
+          "role": null
+        },
+        {
+          "name": "Library",
+          "kind": "class",
+          "role": "`group:artifact:version[:classifier]` plus its download."
+        },
+        {
+          "name": "Argument",
+          "kind": "class",
+          "role": "One entry of `arguments.game` / `arguments.jvm`: either a plain string or `{ rules, value }`."
+        },
+        {
+          "name": "Rule",
+          "kind": "class",
+          "role": null
+        },
+        {
+          "name": "OsRule",
+          "kind": "class",
+          "role": null
+        },
+        {
+          "name": "ManifestEntry",
+          "kind": "class",
+          "role": "One entry of `version_manifest_v2.json`."
+        },
+        {
+          "name": "MojangManifest",
+          "kind": "object",
+          "role": null
+        }
+      ],
+      "role": "The parts of a Mojang version JSON that mc-run needs."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/client/MojangMetadata.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.client",
+      "lines": 49,
+      "declarations": [
+        {
+          "name": "MojangMetadata",
+          "kind": "class",
+          "role": "Cached access to the version manifest and per-version JSON."
+        }
+      ],
+      "role": "Cached access to the version manifest and per-version JSON."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/client/RuleEvaluator.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.client",
+      "lines": 86,
+      "declarations": [
+        {
+          "name": "Environment",
+          "kind": "class",
+          "role": "The machine a rule is evaluated against, in Mojang's vocabulary."
+        },
+        {
+          "name": "RuleEvaluator",
+          "kind": "object",
+          "role": "Evaluates Mojang `rules` arrays: the last matching rule wins, and no rules means allowed."
+        }
+      ],
+      "role": "Evaluates Mojang `rules` arrays: the last matching rule wins, and no rules means allowed."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/client/RunClientTask.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.client",
+      "lines": 73,
+      "declarations": [
+        {
+          "name": "ClientInputs",
+          "kind": "class",
+          "role": "Client inputs shared by `runClient` and `runDev`, wired from `mcRun.client` by the plugin."
+        },
+        {
+          "name": "RunClientTask",
+          "kind": "class",
+          "role": "`runClient`: the vanilla client in the foreground, offline login."
+        }
+      ],
+      "role": "`runClient`: the vanilla client in the foreground, offline login."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/dev/DevSession.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.dev",
+      "lines": 191,
+      "declarations": [
+        {
+          "name": "DevSession",
+          "kind": "class",
+          "role": "Runs the server and the client side by side."
+        }
+      ],
+      "role": "Runs the server and the client side by side."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/dev/RunDevTask.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.dev",
+      "lines": 48,
+      "declarations": [
+        {
+          "name": "RunDevTask",
+          "kind": "class",
+          "role": "`runDev`: starts the server, waits until it is ready, then starts a client that joins it."
+        }
+      ],
+      "role": "`runDev`: starts the server, waits until it is ready, then starts a client that joins it."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Cache.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.download",
+      "lines": 36,
+      "declarations": [
+        {
+          "name": "Cache",
+          "kind": "class",
+          "role": "Layout of the shared download cache, `~/.gradle/caches/mc-run/` by default."
+        }
+      ],
+      "role": "Layout of the shared download cache, `~/.gradle/caches/mc-run/` by default."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Checksum.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.download",
+      "lines": 41,
+      "declarations": [
+        {
+          "name": "Checksum",
+          "kind": "class",
+          "role": "An expected digest of a downloaded file."
+        }
+      ],
+      "role": "An expected digest of a downloaded file."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Downloader.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.download",
+      "lines": 172,
+      "declarations": [
+        {
+          "name": "DownloadException",
+          "kind": "class",
+          "role": null
+        },
+        {
+          "name": "Downloader",
+          "kind": "class",
+          "role": "HTTP access with retries, checksum verification and cache-aware reads."
+        }
+      ],
+      "role": "HTTP access with retries, checksum verification and cache-aware reads."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/download/DownloadService.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.download",
+      "lines": 26,
+      "declarations": [
+        {
+          "name": "DownloadService",
+          "kind": "class",
+          "role": "Build-scoped holder of the shared [Downloader]."
+        }
+      ],
+      "role": "Build-scoped holder of the shared [Downloader]."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/download/FileLocks.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.download",
+      "lines": 50,
+      "declarations": [
+        {
+          "name": "FileLocks",
+          "kind": "object",
+          "role": "Serializes writers of one cache file, both inside this JVM and across processes (two builds running at once share `~/.gradle/caches/mc-run`)."
+        }
+      ],
+      "role": "Serializes writers of one cache file, both inside this JVM and across processes (two builds running at once share `~/.gradle/caches/mc-run`)."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunExtension.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun",
+      "lines": 108,
+      "declarations": [
+        {
+          "name": "McRunExtension",
+          "kind": "class",
+          "role": "The `mcRun { }` block."
+        },
+        {
+          "name": "ServerSpec",
+          "kind": "class",
+          "role": null
+        },
+        {
+          "name": "PluginDownloadsSpec",
+          "kind": "class",
+          "role": null
+        },
+        {
+          "name": "ClientSpec",
+          "kind": "class",
+          "role": null
+        }
+      ],
+      "role": "The `mcRun { }` block."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunPlugin.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun",
+      "lines": 170,
+      "declarations": [
+        {
+          "name": "McRunPlugin",
+          "kind": "class",
+          "role": "Registers the `mcRun { }` extension and the `installClient`, `runServer`, `runClient` and `runDev` tasks."
+        }
+      ],
+      "role": "Registers the `mcRun { }` extension and the `installClient`, `runServer`, `runClient` and `runDev` tasks."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunTask.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun",
+      "lines": 54,
+      "declarations": [
+        {
+          "name": "McRunTask",
+          "kind": "class",
+          "role": "Base of every mc-run task."
+        }
+      ],
+      "role": "Base of every mc-run task."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/server/PaperFillApi.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.server",
+      "lines": 112,
+      "declarations": [
+        {
+          "name": "PaperFillApi",
+          "kind": "class",
+          "role": "Resolves Paper and Folia server jars through the Fill v3 API."
+        }
+      ],
+      "role": "Resolves Paper and Folia server jars through the Fill v3 API."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/server/PluginDownloads.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.server",
+      "lines": 69,
+      "declarations": [
+        {
+          "name": "PluginDownloads",
+          "kind": "class",
+          "role": "Turns each [PluginSource] into a cached jar under `plugins/`."
+        }
+      ],
+      "role": "Turns each [PluginSource] into a cached jar under `plugins/`."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/server/PluginSource.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.server",
+      "lines": 16,
+      "declarations": [
+        {
+          "name": "PluginSource",
+          "kind": "interface",
+          "role": "One extra server plugin declared in `downloadPlugins { }`."
+        }
+      ],
+      "role": "One extra server plugin declared in `downloadPlugins { }`."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/server/RunServerTask.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.server",
+      "lines": 84,
+      "declarations": [
+        {
+          "name": "ServerInputs",
+          "kind": "class",
+          "role": "Server inputs shared by `runServer` and `runDev`, wired from `mcRun.server` by the plugin."
+        },
+        {
+          "name": "RunServerTask",
+          "kind": "class",
+          "role": "`runServer`: Paper or Folia in the foreground, console attached."
+        }
+      ],
+      "role": "`runServer`: Paper or Folia in the foreground, console attached."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/server/ServerDirPreparer.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.server",
+      "lines": 61,
+      "declarations": [
+        {
+          "name": "ServerDirPreparer",
+          "kind": "object",
+          "role": "Prepares the server working directory: `server.properties` and the EULA check."
+        }
+      ],
+      "role": "Prepares the server working directory: `server.properties` and the EULA check."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/server/ServerLaunchBuilder.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.server",
+      "lines": 70,
+      "declarations": [
+        {
+          "name": "ServerSettings",
+          "kind": "class",
+          "role": "Plain, serializable snapshot of the `server { }` block, captured by the tasks."
+        },
+        {
+          "name": "ServerLaunchBuilder",
+          "kind": "object",
+          "role": "Shared by `runServer` and `runDev`: resolves the server jar and extra plugins, prepares the run directory and returns the command to start."
+        }
+      ],
+      "role": "Shared by `runServer` and `runDev`: resolves the server jar and extra plugins, prepares the run directory and returns the command to start."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/ServerType.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun",
+      "lines": 8,
+      "declarations": [
+        {
+          "name": "ServerType",
+          "kind": "class",
+          "role": "Server software `runServer` can launch."
+        }
+      ],
+      "role": "Server software `runServer` can launch."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/util/JavaVersions.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.util",
+      "lines": 27,
+      "declarations": [
+        {
+          "name": "JavaVersions",
+          "kind": "object",
+          "role": "Fallback mapping from a Minecraft version to the Java major it needs."
+        }
+      ],
+      "role": "Fallback mapping from a Minecraft version to the Java major it needs."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/util/JvmCommand.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.util",
+      "lines": 35,
+      "declarations": [
+        {
+          "name": "JvmCommand",
+          "kind": "class",
+          "role": "Everything needed to start one JVM."
+        }
+      ],
+      "role": "Everything needed to start one JVM."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/util/OfflineUuid.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.util",
+      "lines": 13,
+      "declarations": [
+        {
+          "name": "OfflineUuid",
+          "kind": "object",
+          "role": "The UUID an offline-mode server assigns to a player name."
+        }
+      ],
+      "role": "The UUID an offline-mode server assigns to a player name."
+    },
+    {
+      "path": "src/main/kotlin/io/github/n1ght3r/mcrun/util/PluginInfo.kt",
+      "sourceSet": "main",
+      "package": "io.github.n1ght3r.mcrun.util",
+      "lines": 19,
+      "declarations": [
+        {
+          "name": "PluginInfo",
+          "kind": "object",
+          "role": "Build-time facts about mc-run itself, read from the `mc-run.properties` resource."
+        }
+      ],
+      "role": "Build-time facts about mc-run itself, read from the `mc-run.properties` resource."
+    },
+    {
+      "path": "src/test/kotlin/io/github/n1ght3r/mcrun/client/LaunchArgumentsTest.kt",
+      "sourceSet": "test",
+      "package": "io.github.n1ght3r.mcrun.client",
+      "lines": 55,
+      "declarations": [
+        {
+          "name": "LaunchArgumentsTest",
+          "kind": "class",
+          "role": null
+        }
+      ],
+      "role": null
+    },
+    {
+      "path": "src/test/kotlin/io/github/n1ght3r/mcrun/client/MojangManifestTest.kt",
+      "sourceSet": "test",
+      "package": "io.github.n1ght3r.mcrun.client",
+      "lines": 66,
+      "declarations": [
+        {
+          "name": "MojangManifestTest",
+          "kind": "class",
+          "role": null
+        }
+      ],
+      "role": null
+    },
+    {
+      "path": "src/test/kotlin/io/github/n1ght3r/mcrun/client/RuleEvaluatorTest.kt",
+      "sourceSet": "test",
+      "package": "io.github.n1ght3r.mcrun.client",
+      "lines": 80,
+      "declarations": [
+        {
+          "name": "RuleEvaluatorTest",
+          "kind": "class",
+          "role": null
+        }
+      ],
+      "role": null
+    },
+    {
+      "path": "src/test/kotlin/io/github/n1ght3r/mcrun/McRunPluginFunctionalTest.kt",
+      "sourceSet": "test",
+      "package": "io.github.n1ght3r.mcrun",
+      "lines": 95,
+      "declarations": [
+        {
+          "name": "McRunPluginFunctionalTest",
+          "kind": "class",
+          "role": null
+        }
+      ],
+      "role": null
+    },
+    {
+      "path": "src/test/kotlin/io/github/n1ght3r/mcrun/server/PaperFillApiTest.kt",
+      "sourceSet": "test",
+      "package": "io.github.n1ght3r.mcrun.server",
+      "lines": 26,
+      "declarations": [
+        {
+          "name": "PaperFillApiTest",
+          "kind": "class",
+          "role": null
+        }
+      ],
+      "role": null
+    },
+    {
+      "path": "src/test/kotlin/io/github/n1ght3r/mcrun/server/ServerDirPreparerTest.kt",
+      "sourceSet": "test",
+      "package": "io.github.n1ght3r.mcrun.server",
+      "lines": 67,
+      "declarations": [
+        {
+          "name": "ServerDirPreparerTest",
+          "kind": "class",
+          "role": null
+        }
+      ],
+      "role": null
+    },
+    {
+      "path": "src/test/kotlin/io/github/n1ght3r/mcrun/server/ServerDownloadNetworkTest.kt",
+      "sourceSet": "test",
+      "package": "io.github.n1ght3r.mcrun.server",
+      "lines": 29,
+      "declarations": [
+        {
+          "name": "ServerDownloadNetworkTest",
+          "kind": "class",
+          "role": null
+        }
+      ],
+      "role": null
+    },
+    {
+      "path": "src/test/kotlin/io/github/n1ght3r/mcrun/util/UtilTest.kt",
+      "sourceSet": "test",
+      "package": "io.github.n1ght3r.mcrun.util",
+      "lines": 40,
+      "declarations": [
+        {
+          "name": "UtilTest",
+          "kind": "class",
+          "role": null
+        }
+      ],
+      "role": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/ClientInstaller.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/LaunchSpec.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/ClientInstaller.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/MojangManifest.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/ClientInstaller.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/MojangMetadata.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/ClientInstaller.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/RuleEvaluator.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/ClientInstaller.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Checksum.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/ClientInstaller.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Downloader.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/ClientLaunchBuilder.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/LaunchArguments.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/ClientLaunchBuilder.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/LaunchSpec.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/ClientLaunchBuilder.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/util/JvmCommand.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/ClientLaunchBuilder.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/util/OfflineUuid.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/ClientLaunchBuilder.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/util/PluginInfo.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/InstallClientTask.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunTask.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/InstallClientTask.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/ClientInstaller.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/MojangMetadata.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/MojangManifest.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/MojangMetadata.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Checksum.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/MojangMetadata.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Downloader.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/MojangMetadata.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/util/JavaVersions.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/RuleEvaluator.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/MojangManifest.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/RunClientTask.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunTask.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/RunClientTask.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/ClientLaunchBuilder.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/client/RunClientTask.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/LaunchSpec.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/dev/DevSession.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/util/JvmCommand.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/dev/RunDevTask.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunTask.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/dev/RunDevTask.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/RunClientTask.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/dev/RunDevTask.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/dev/DevSession.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/dev/RunDevTask.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/server/RunServerTask.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/dev/RunDevTask.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/server/ServerLaunchBuilder.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Downloader.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Cache.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Downloader.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Checksum.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Downloader.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/FileLocks.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Downloader.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/util/PluginInfo.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/download/DownloadService.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Cache.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/download/DownloadService.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Downloader.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunExtension.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/ServerType.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunExtension.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/server/PluginSource.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunPlugin.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunExtension.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunPlugin.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/ServerType.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunPlugin.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/InstallClientTask.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunPlugin.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/MojangMetadata.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunPlugin.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/RunClientTask.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunPlugin.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/dev/RunDevTask.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunPlugin.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Cache.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunPlugin.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/DownloadService.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunPlugin.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Downloader.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunPlugin.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/server/RunServerTask.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunTask.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/DownloadService.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunTask.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Downloader.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunTask.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/util/JvmCommand.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/server/PaperFillApi.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/ServerType.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/server/PaperFillApi.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Checksum.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/server/PaperFillApi.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Downloader.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/server/PluginDownloads.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Checksum.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/server/PluginDownloads.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Downloader.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/server/PluginDownloads.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/server/PluginSource.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/server/RunServerTask.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/McRunTask.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/server/RunServerTask.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/ServerType.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/server/RunServerTask.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/server/PluginSource.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/server/RunServerTask.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/server/ServerLaunchBuilder.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/server/ServerLaunchBuilder.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/ServerType.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/server/ServerLaunchBuilder.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Downloader.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/server/ServerLaunchBuilder.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/server/PaperFillApi.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/server/ServerLaunchBuilder.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/server/PluginDownloads.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/server/ServerLaunchBuilder.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/server/PluginSource.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/server/ServerLaunchBuilder.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/server/ServerDirPreparer.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/main/kotlin/io/github/n1ght3r/mcrun/server/ServerLaunchBuilder.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/util/JvmCommand.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/test/kotlin/io/github/n1ght3r/mcrun/client/LaunchArgumentsTest.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/LaunchArguments.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/test/kotlin/io/github/n1ght3r/mcrun/client/MojangManifestTest.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/ClientInstaller.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/test/kotlin/io/github/n1ght3r/mcrun/client/MojangManifestTest.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/MojangManifest.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/test/kotlin/io/github/n1ght3r/mcrun/client/MojangManifestTest.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/RuleEvaluator.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/test/kotlin/io/github/n1ght3r/mcrun/client/RuleEvaluatorTest.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/MojangManifest.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/test/kotlin/io/github/n1ght3r/mcrun/client/RuleEvaluatorTest.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/client/RuleEvaluator.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/test/kotlin/io/github/n1ght3r/mcrun/server/PaperFillApiTest.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/server/PaperFillApi.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/test/kotlin/io/github/n1ght3r/mcrun/server/ServerDirPreparerTest.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/server/ServerDirPreparer.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/test/kotlin/io/github/n1ght3r/mcrun/server/ServerDownloadNetworkTest.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/ServerType.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/test/kotlin/io/github/n1ght3r/mcrun/server/ServerDownloadNetworkTest.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Cache.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/test/kotlin/io/github/n1ght3r/mcrun/server/ServerDownloadNetworkTest.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/download/Downloader.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/test/kotlin/io/github/n1ght3r/mcrun/server/ServerDownloadNetworkTest.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/server/PaperFillApi.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/test/kotlin/io/github/n1ght3r/mcrun/server/ServerDownloadNetworkTest.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/server/PluginDownloads.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/test/kotlin/io/github/n1ght3r/mcrun/server/ServerDownloadNetworkTest.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/server/PluginSource.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/test/kotlin/io/github/n1ght3r/mcrun/util/UtilTest.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/util/JavaVersions.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/test/kotlin/io/github/n1ght3r/mcrun/util/UtilTest.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/util/JvmCommand.kt",
+      "type": "uses"
+    },
+    {
+      "from": "src/test/kotlin/io/github/n1ght3r/mcrun/util/UtilTest.kt",
+      "to": "src/main/kotlin/io/github/n1ght3r/mcrun/util/OfflineUuid.kt",
+      "type": "uses"
+    }
+  ]
+}

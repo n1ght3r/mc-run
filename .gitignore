@@ -1,0 +1,27 @@
+# Gradle build output and cache
+.gradle/
+.kotlin/
+build/
+
+# Keep the Gradle wrapper binaries
+!gradle/wrapper/gradle-wrapper.jar
+!gradlew
+!gradlew.bat
+
+# Dev run directories created when the plugin is applied to itself or to a sample
+run/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local Claude settings
+.claude/settings.local.json
